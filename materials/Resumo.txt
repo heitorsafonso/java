@@ -1,0 +1,168 @@
+Variáveis primitivas 
+boolean: Tipo lógico, verdadeito/true/1 ou falso/false/0
+char: Tipo caractere, dados alfanuméricos.
+String: Tipo texto.
+byte: Inteiro de 8 bits. Valores entre -27=-128 e 27-1=127.
+short: Inteiro de 16 bits. Valores entre -2-15=-32.768 e 215-1=32.767
+int: Inteiro de 32 bits. Valores entre -231=2.147.483.648 e 231-1=2.147.483.647.
+long: Inteiro de 64 bits. Valores entre -263 e 263-1.
+float: Números reais (ponto flutuante) de 32 bits. Valores entre 1.40239846e-46 e 3.40282347e+38
+double: Números reais (ponto flutuante) de 64 bits. Valores entre 4.94065645841246544e-324 e 1.7976931348623157e+308
+
+Variáveis globais podem ser acessadas por qualquer método da classe.
+Variáveis locais são variáveis criadas dentro dos métodos, seu escopo é somente o método onde foi declarada
+
+
+static 
+Classes estáticas “static” só podem acessar variáveis que também sejam estáticas.
+Quando declaramos variáveis static em uma classe ela será exatamente a mesma para todos os objetos desta classe,
+ou seja, não teremos um tipo diferente em cada objeto, todos os objetos, ao acessarem e modificarem essa variável,
+acessarão a mesma variável, o mesmo espaço na memória, e a mudança valerá para todos os objetos.
+
+Um fator importante a ser destacado é que não podemos declarar duas variáveis com mesmo nome no mesmo escopo.
+
+Operadores matemáticos
++ Soma, retorna o resultado da soma A + B
+- Subtração, retorna o resultado da subtração A – B
+* Multiplicação, retorna o resultado da multiplicação A * B
+/ Divisão, retorna o resultado da divisão A / B
+% MOD, retorna resto da divisão A % B
+
+Operadores de incremento/decremento
+++ Soma um ao valor atual do elemento A++
+-- Subtrai um ao valor atual do elemento A--
++= X Soma o valor de X ao elemento A += 10
+-= X Subtrai o valor de X ao elemento A -= 10
+*= X Multiplica o valor de X ao elemento A *= 2
+
+Operador de atribuição
+= Operador principal para atribuir/inserir um valor a um elemento A = 20 ou A = B
+
+Operadores relacionais / comparação
+> Maior, compara se um elemento tem o valor maior que outro A > B
+< Menor, compara se um elemento tem o valor menor que outro A < B
+>= Maior ou igual, compara se um elemento é maior ou igual a outro A >= B
+<= Menor ou igual, compara se um elemento é menor ou igual a outro A <= B
+== Igualdade, compara se um elemento tem o valor igual a outro A == B
+!= Diferença, compara se um elemento tem o valor diferende de outro A != B
+OBS: Estes operadores retornar true (verdadeiro, 1) ou false (falso, 0), por exemplo na comparação A>B, se A for
+maior que B retorna true/verdadeiro/1, se for menor retorna false/falso/0.
+
+Operadores de shift
+>> Deslocamento à direita dos bits A >> 1
+<< Deslocamento à esquerda dos bits A << 1
+
+Operadores AND(&&) e OR(||)
+&& E, returna true/verdadeiro/1 se todos as comparações forem verdadeiras (A > B) && (C < D)
+|| OU, returna true/verdadeiro/1 se pelo menor uma das comparações forem verdadeiras (A > B) || (C < D)
+
+
+Pré e Pós incremento
+X++ Pós incremento, usa o valor de X e só depois faz o incremento Y = X++
+++X Pré incremento, faz o incremento e então usa o novo valor de X Y = ++X
+
+
+Constantes
+Têm o valor definido no momento da declaração, de forma fixa, e não pode ser alterado. 
+Para declarar um constante em Java basta usar a palavra chave “final”
+
+
+Operações de casting
+É uma operação de conversão (“moldagem”) usada para converter um valor em outro.
+tipo1 = (casting)tipo2;
+A tabela a seguir ilustra bem as situações onde são necessárias o uso de casting e onde as conversões são implícitas (autopromoção) onde não há necessidade de casting.
+
+PARA / DE 	byte 		short	 	char		 int		 long		 float		 double
+byte 		- 		(byte) 		(byte) 		(byte) 		(byte) 		(byte) 		(byte)
+short 		implícita 	- 		(short) 	(short) 	(short) 	(short) 	(short)
+char 		(char) 		(char) 		- 		(char) 		(char) 		(char) 		(char)
+int 		implícita 	implícita 	implícita 	- 		(int) 		(int) 		(int)
+long 		implícita 	implícita 	implícita 	implícita 	- 		(long) 		(long)
+float 		implícita 	implícita 	implícita 	implícita 	implícita 	- 		(float)
+double 		implícita 	implícita 	implícita 	implícita 	implícita 	implícita	-
+
+
+Comentários 
+Servem para inserir textos não compiláveis no código, ou seja um conteúdo será ignorado na compilação, podemos usar para documentar nosso código, inserir notas ou lembretes.
+Para comentar somente uma linha em nosso código usamos //, veja o exemplo.
+Para comentário multilinha ou em bloco usamos /* para indicar o início do comentário e */ para indicar o fim, veja o exemplo.
+
+
+IF / ELSE
+Comandos para controle de execução de ações em um programa, realizar um teste lógico e se o resultado deste teste for verdadeiro o comando IF executa um determinado bloco de comandos ou não.
+Um complemento ao comando IF é o ELSE, que é o caso contrário do IF, ou seja, se o resultado da comparação for
+falso.
+OBS: Um detalhe importante sobre o bloco de comandos do IF é que, se existir somente um comando para ser
+executado pelo IF, não é necessário utilizar chaves { }, assim os códigos a seguir resultam no mesmo fim. Somente é obrigatório o uso das { } quando o bloco IF contiver mais de uma linha de comando.
+
+
+AND(&&), OR(||), NOT(!)
+Os operadores AND, OR e NOT auxiliam bastante na construção de expressões lógicas para os testes IF e para os
+loops WHILE e FOR
+O operador NOT (!) faz uma negação invertendo o resultado do teste lódigo, ou seja, se o teste for verdadeiro o NOT
+retorna falso e se for falso o NOT retorna verdadeiro.
+
+
+Ternário
+O operador condicional ternário pode substituir o IF ELSE em alguns casos mais simples.
+(expressão) ? se_verdadeiro : se_falso;
+
+
+Switch
+O comando switch é “semelhante” ao comando “IF”, onde dependendo do resultado de um determinado teste será executado um determinado bloco de comandos.
+
+
+While 
+O comando while ("enquanto") é um comando de loop, isso significa que ele executa um bloco de comandos enquanto uma
+determinada condição for satisfeita. Precisamos preparar a condição antes da entrada do while e dentro do bloco de comandos devemos trabalhar na condição de parada do loop, pois correse o risto do comando entrar em um loop infinito e levar a parada do programa.
+
+
+Do while 
+É semelhante ao comando while, mas enquanto o comando while testa a condição no início o comando do while testa a condição no final.
+
+
+For 
+O loop FOR tem uma sintaxe diferenciada do loop while, usamos o loop for quando podemos prever quantas iterações serão executadas.
+
+
+Arrays unidimensionais (vetor) 
+É uma coleção de variáveis do mesmo tipo, todas na mesma estrutura, cada “variável” do array é chamada de elemento e podemos referenciar os elementos com um índice. Ao invés de criarmos n variáveis diferentes, podemos criar um array com n posições/elementos, cada elemento irá armazenar um valor.
+Para declarar um array em Java basta usar os colchetes [ ] após o tipo de dados. Para alocar memória para nosso array e podermos usar, precisamos usar “new” e informar a quantidade de elementos do array.
+Para inserir valores nas posições/elementos do array, basta informar a posição que deseja armazenar o valor.
+O primeiro elemento do array é o elementos de índice zero e não um.
+Podemos usar o loop for para ler ou preencher nosso array. 
+A constante length retorna o tamanho (quantidade de posições/elementos) do array, bastante útil sempre que for
+preciso saber a quantidade de elementos de um array.
+Podemos inserir os elementos do array na mesma linha de código em que o instanciamos.
+
+Arrays bidimensionais (matriz) 
+Basicamente são Arrays controlados por dois índices, como se tivéssemos um novo array
+dentro de cada elemento do array anterior. Uma representação simples para um array bidimensional ou matriz é
+uma tabela, com linhas e colunas.
+Usamos dois loops FOR, o primeiro para controlar as linhas e o segundo para controlar as colunas.
+
+A classe Arrays
+Para usarmos a classe Array e seus métodos precisamos importar a biblioteca Arrays (import java.util.Arrays)
+
+binarySearch: Faz uma busca em um array por um valor informado e retorna sua posição.
+Arrays.binarySearch(array, elemento_procurado);
+
+copyOf: Copia os elementos de um array para outro array.
+arrayDestino = Arrays.copyOf(array_original, quantidade_de_elementos_a_serem_copiados);
+
+copyOfRange: É semelhante ao “copyOf” mas permite informar um intervalo, uma faixa de valores a serem copiados
+arrayDestino = Arrays.copyOfRange(array_original, valor_inicial, valor_final);
+
+equals: Faz a comparação de dois arrays, se forem iguais retorna “true” e se não forem retorna “false”.
+Arrays.equals(array_1, array_2);
+
+fill: Preenche todo o array com o elemento indicado.
+Arrays.fill(array, valor);
+
+sort: Ordena todos os elementos do nosso array em ordem crescente.
+A sintaxe é bem simples: Arrays.sort(array_a_ser_ordenado);
+
+
+Scanner 
+Para usar a classe “Scanner” precisamos importar a biblioteca “java.util.Scanner”.
+Para a leitura do texto/String usamos o método “nextLine” e para a leitura do inteiro usamos o método “nextInt”.

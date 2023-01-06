@@ -1,0 +1,182 @@
+Linguagem java
+- Orientada a objeto
+- bibliotecas
+- parece c++
+- varios SOs
+
+Plataforma java
+- Portável
+- Facil
+- Seguro
+- Onipresente
+
+Ideia de escrever um unico codigo que gera um executavel que serve para qualquer dispositivo. Para isso algo parecido com um computador deveria traduzir o codigo.
+
+Codigo > Executável (bytecode) > Maquina Virtual Java JVM > Windows / Linux / MacOS
+
+Plataforma java
+- Maquina virtual JVM
+- Bibliotecas - API
+- Linguagens 
+
+O grande benefício de uma Máquina Virtual Java (JVM) é executar o código independente do sistema operacional.  No mundo Java você terá sempre o mesmo "executável" ou Bytecode que será executado pela Maquina Virtual Java, totalmente independente do sistema operacional. Assim não é preciso rescrever ou adaptar o código para rodar em um outro sistema operacional. Temos um único executável para todos os sistemas!
+
+Tipos de sistemas para criar com a linguagem Java:
+a) Sistemas para Web (Web Sites ou Web Apps)
+b) Sistemas puramente "Server-Side"
+c) Aplicativos para Android
+d) Applets que rodam no navegador
+
+A diferença entre o executável do Windows (exe) e o executável do mundo Java (Bytecode) é que os executáveis do mundo Java são portáveis, os do mundo Windows não, e os executáveis do mundo Windows podem ser executados diretamente no sistema operacional, os do mundo Java precisam da máquina virtual.
+
+O Bytecode é parecido com o Assembly (código de montagem que é traduzido para código de máquina). O Bytecode é executado (interpretado) pela JVM. O Bytecode é independente do sistema operacional. O código fonte é para o desenvolvedor entender, o Bytecode foi criado e otimizado para a máquina virtual.
+
+Existe um conjunto de comandos que a máquina virtual Java entende. Esses comandos também são chamados de opcodes (operation code), e cada opcode possui o tamanho de exatamente 1 Byte, e aí temos um opcode de 1 Byte ou, mais simples, Bytecode.
+
+
+versoes
+O JRE é o ambiente para executar uma aplicação Java.
+O JDK é o ambiente para executar uma aplicação Java e possui várias ferramentas de desenvolvimento.  o JDK também possui o compilador, mas é muito mais do que isso! Dentro dele vem várias outras ferramentas (para, por exemplo, gerar a documentação) e também tem o JRE embutido.
+Existe uma terceira sigla, JVM (Java Virtual Machine), que também já usamos durante o curso. A responsabilidade da Java Virtual Machine é executar o Bytecode. O JRE (o nosso ambiente de execução) contém a JVM, mas também possui um monte de bibliotecas embutidas. Ou seja, para rodar uma aplicação Java não basta ter apenas a JVM, também é preciso ter as bibliotecas.
+
+JRE = JVM + bibliotecas
+JDK = JRE + ferramentas de desenvolvimento
+
+
+Baixar o  Java Runtime Environment, ou "ambiente de execução Java", que é necessário para executar uma aplicação Java. Como desenvolvedores, precisaremos do JDK, ou Java Development Kits, o "kit para desenvolver aplicações Java".
+
+Apos a instalação do JDK deverá ser checado no prompt do MSDOS se atraves do comando "java" e "javac". Se o "javac" não for reconhecido deverá encontrar a pasta bin do jdk e configurar nas variaveis de ambiente (ex: C:\Program Files\Java\jdk1.8.0_351\bin).
+
+
+Instalando o JDK no Linux
+1) No Linux, primeiramente vamos ter que executar o seguinte comando no terminal:
+"sudo apt update"
+
+2) Feito isso, agora vamos instalar a versão 17 do JDK, que hoje é a mais recente, para isso, vamos executar o seguinte comando no terminal:
+"sudo apt install openjdk-17-jdk"
+
+Caso queira, você poderá instalar uma versão mais antiga do JDK, você só terá que mudar o número da versão que fica entre openjdk- e -jdk, por exemplo, você pode instalar a versão 11 com: openjdk-11-jdk e a versão 8 com: openjdk-8-jdk, mas recomendamos que você instale a versão mais recente, no caso, a versão 17.
+
+3) Terminado o processo de instalação, chegou a hora de configurar a variável de ambiente JAVA_HOME, que é utilizada para indicar o caminho de instalação do JDK. Em uma tradução literal seria o “lar do java” e ela será necessária para utilizarmos os recursos do JDK como o javac. Para isso, execute o comando sudo update-alternatives --config java que mostrará o caminho onde o JDK foi instalado. O resultado será parecido ou igual a esse:
+"/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
+
+Agora, copie esse caminho até /bin, por exemplo: /usr/lib/jvm/java-17-openjdk-amd64/bin e digite no seu terminal o comando: export JAVA_HOME=, sendo que após o sinal de igual, sem deixar espaços, cole o caminho que você copiou da instalação do JDK. Por exemplo:
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/bin
+
+Pressione enter e pronto, seu JDK está instalado e configurado. Para testá-lo, digite os seguintes comandos no terminal:
+"javac -version
+java -version"
+
+Primeiro codigo
+
+public class Programa {
+
+    public static void main(String[] args) {
+        System.out.println("olá mundo");
+    }
+}
+
+O arquivo deverá ser salvo com o nome da class
+Para acessar e executar o arquivo deverá ser utilizado o Prompt de Comando. Para acessar a pasta em que o diretório está digitaremos "cd .. ou cd nomedodiretorio" e "dir" para listar todos os diretórios. Ali, é listado um arquivo "Programa.java"! No Windows, há um comando chamado type (equivalente ao cat do terminal do Linux), o qual permite a visualização do conteúdo do arquivo. Neste caso, usaríamos type Programa.java.
+
+A seguir, usaremos o comando javac Programa.java, e daremos um "Enter", com o qual serão mostradas as mensagens de erro de compilação, fundamentais para o aprendizado.
+
+Por meio de dir no prompt, você verá que há dois arquivos: "Programa.java" e "Programa.class", este último no formato binário, em bytecode. E para chamarmos a virtual machine, usaremos o comando java Programa, e veremos a impressão de "olá mundo". Trata-se da primeira execução do nosso programa Java!
+
+Agora, veremos os principais erros e características deste código. O primeiro surge ao digitarmos java Programa.class, o que traz a seguinte mensagem de erro na execução do programa:
+"Erro: Não foi possível localizar nem carregar a classe principal Programa.class"
+
+Isto acontece porque o programa não se chama "Programa.class", e sim simplesmente "Programa", apesar de estar contido no arquivo "Programa.class".
+
+Outros erros mais comuns são os de compilação, como quando esquecemos de colocar o ponto e vírgula no fim da linha. Além disso, o Java possui palavras chave (keywords, ou palavras reservadas), dentre os quais utilizamos "public", "class", "static" e "void", que devem estar em letra minúscula, uma vez que o Java é case sensitive (reconhece o uso de letras maiúsculas ou minúsculas).
+
+Veja as afirmações abaixo sobre a compilação e execução de código Java:
+
+1 - Durante a compilação acontece uma verificação sintática do código fonte.
+2 - Na compilação e execução podem aparecer erros.
+3 - A JVM lê e executa o Bytecode.
+4 - O compilador gera o Bytecode caso não tenha nenhum erro sintático no código fonte.
+
+IDE
+Um IDE é um ambiente integrado de desenvolvimento que centraliza em um único lugar o compilador da linguagem utilizada, editor de texto, documentação e tudo que gira em torno da criação de aplicações.
+
+A comunidade geral do Java costuma usar não um editor, mas um IDE (Integrated Development Environment, que em português seria algo como "Ambiente Integrado de Desenvolvimento"). Um IDE não é simplesmente um editor pois integra em um único local a linguagem, o editor, o compilador, a biblioteca e a documentação.
+
+Os principais IDEs utilizados por quem programa em Java são: o NetBeans, da própria Oracle, o IntelliJ IDEA, usado como base para Android, e também conhecido por Android Studio, e o Eclipse, projeto em código aberto absorvido pela IBM e, hoje em dia, um consórcio de muitas empresas que tomam conta do programa.
+
+Um workspace é a pasta padrão que será utilizado para armazenar todos os projetos criados com a IDE Eclipse. Cada projeto do Eclipse fica dentro de um workspace.
+
+Executamos nosso programa no Eclipse através do menu Run -> Run as -> Java Application.
+
+Dentro de um projeto Java, criamos uma nova classe através da opção do menu File -> New -> Class.
+
+A saída do nosso programa executado pelo Eclipse é feita através da view console.
+
+a respeito da View Navigator, É parecida com o Windows Explorer do Windows ou o Finder do MAC. Ela nos permite ver o diretório do projeto com seus arquivos na integra.
+
+Atalhos no Eclipse:
+main + ctrl + espaço (para gerar o método main)
+ctrl + shift + f (para formatar o código fonte)
+sysout + ctrl + espaço (para gerar a instrução System.out.println())
+
+Classe usa camell case exemplo: public class TestaVariaveis {}
+Nome de variavel usa primeira letra minuscula
+
+
+Existe uma variável primitiva básica do Java que trabalha com chars, isto é, caracteres, cuja peculiaridade é guardar um único caractere de 16bits.
+O char guarda em si um único código, um número da tabela de Unicode, como a ASCII, porém muito maior e sem limite definido.
+
+uma String é declarada com aspas duplas " e pode ter zero ou mais caracteres. Um char é declarado com aspas simples ' e pode usar apenas um caractere!
+
+
+a ideia central do paradigma da Orientação a Objetos é que Dado e funcionalidade sobre ele andam juntos. Um sinal de Orientação a objeto são Várias equipes trabalhando em um único projeto.
+
+variável é onde armazenamos dados. Não precisamos de um objeto ou classe para usar variáveis.
+parâmetros são as informações que passamos para uma função.
+ argumento é o nome dado à cada valor que uma função recebe.
+Em orientação a objetos chamamos de Atributo as características de uma classe
+Uma classe é uma especificação de um tipo, definindo atributos e comportamentos.
+Um objeto é uma instância de uma classe onde podemos definir valores para seus atributos.
+Para criar uma instância não é obrigatório preencher os valores de todos os atributos.
+Para criar uma instância precisamos usar a palavra chave new
+
+
+Um método define o comportamento ou a maneira de fazer algo.
+É possível que um método não tenha nenhum parâmetro.
+Por convenção, o nome do método no mundo Java deve começar com letra minúscula.
+qualquer método no mundo Java precisa definir o retorno. Isso também é quando não queremos retornar nada, pois devemos usar a palavra chave void.
+
+ a sintaxe e ordem correta para chamar um método com Java:
+nomeDaReferencia.nomeDoMetodo();
+
+ O this é uma referência, ou seja, "aponta" para um objeto.
+ O uso do this é opcional, mas recomendamos o seu uso, principalmente para o iniciante na linguagem Java.
+o this é uma palavra chave igual á void, class, new, int e varias outras. O IDE Eclipse mostra todas as palavras-chave em uma cor diferente, a cor "roxo".
+
+
+Com atributos privados a implementação interna pode ser modificada sem afetar nenhum código fora da própria classe. atributos privados só podem ser acessados dentro da classe que declarou. você não precisa mas pode criar getters e setters.
+
+Construtores são utilizados para inicialização dos atributos, a inicialização de atributos é a principal responsabilidade do construtor. O construtor padrão (default) é aquele que não recebe nenhum parâmetro. Se não criamos um construtor, o compilador insere o construtor padrão. O construtor é chamado na inicialização do objeto. podemos adicionar vários construtores na classe, desde que ele difiram na quantidade ou tipo de parâmetros.
+
+A herança em java é passada por meio da expressão "extends" , desta forma, ao estender a classe Herda todas as características, todo o comportamento e pertence a classe. Mas ao herdar não estamos criando ou instanciando, para criar um objeto sempre devemos usar new.
+
+Exemplo de herança
+Herança em Java: class Carro extends Veiculo {}
+Herança em C#: class Carro : Veiculo {}
+Herança em Ruby: class Carro < Veiculo
+Herança em Python: class Carro(Veiculo)
+
+A palavra chave com a menor visibilidade é private, depois vem o protected e depois public.
+private - apenas visível dentro da classe
+protected - visível dentro da classe e também para as filhas
+public - visível em todo lugar
+Repare também que protected é relacionado com a herança.
+
+Só a própria classe enxerga atributos/métodos private, enquanto protected é visto pela própria classe mais as classes filhas.
+
+1) Uma classe pode ter várias filhas, mas apenas uma mãe. Uma classe pode ter diversas "filhas e netas" (que herdam umas das outras).
+2) A partir de uma instância de uma classe filha, podemos chamar qualquer método público que tenha sido declarado na classe mãe.
+3) Na classe filha, não podemos escolher o que herdar da classe mãe.
+
+Polimorfismo se trata de um objeto que pode ser referenciado por uma referência de mesmo tipo, ou genérica.
